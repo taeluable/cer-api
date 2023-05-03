@@ -16,6 +16,7 @@ app.get('/audit',(req,res) => {
             console.log(err);
         }else{
             console.log('Connected to PlanetScale!')
+            res.send(result);
         } 
     });
 });

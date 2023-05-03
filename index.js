@@ -56,7 +56,7 @@ app.get('/:x', (req, res) => {
   });
 });
 
-app.post('/user'. jsonParser. function (req, res,next) => {
+app.post('/:x', jsonParser, function (req, res,next) => {
   //const x = req.params.x;
     var Email = req.body.Email
     res.json({Email})

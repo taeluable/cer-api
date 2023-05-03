@@ -56,8 +56,8 @@ app.get('/:x', (req, res) => {
   });
 });
 
-app.post('/:x'. jsonParser. function (req, res,next) => {
-  const x = req.params.x;
+app.post('/user'. jsonParser. function (req, res,next) => {
+  //const x = req.params.x;
     var Email = req.body.Email
     res.json({Email})
   // process the POST request and update the database table

@@ -15,7 +15,7 @@ app.get('/',(req,res) => {
 })
 
 app.get('/ocb', (req, res) => {
-  connection.query("SELECT table_name FROM information_schema.tables WHERE table_schema = '<ocb>'", (err, tables) => {
+  connection.query("SELECT * FROM information_schema.tables WHERE table_schema = '<ocb>'", (err, tables) => {
     if (err) {
       console.log(err);
     } else {

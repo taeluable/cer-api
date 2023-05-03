@@ -10,7 +10,7 @@ app.use(cors());
 const connection = mysql.createConnection(process.env.DATABASE_URL)
 
 
-app.get('/',(req,res) => {
+app.get('/audit',(req,res) => {
     connection.query("SELECT * FROM audit",(err,result) => {
         if(err){
             console.log(err);

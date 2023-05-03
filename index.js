@@ -10,6 +10,17 @@ app.use(cors());
 
 const connection = mysql.createConnection(process.env.DATABASE_URL);
 
+app.get('/:x', (req, res) => {
+  const x = req.params.x;
+  connection.query(`SELECT * FROM ${x}`, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    } 
+  });
+});
+
 app.post('/:x', jsonParser, (req, res) => {
   const x = req.params.x;
   const data = req.body;

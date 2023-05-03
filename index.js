@@ -28,12 +28,19 @@ app.get('/:x', (req, res) => {
 });
 
 
-app.post('/:x', jsonParser, function (req, res,next) => {
-    const x = req.params.x;
-    var Email = req.body.Email
-    res.json({Email})
-  // process the POST request and update the database table
+app.post('/:x', jsonParser, (req, res) => {
+  const x = req.params.x;
+  const { Email } = req.body;
+  connection.query(`INSERT INTO ${x} (email) VALUES (?)`, [Email], (err, result) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error while inserting data");
+    } else {
+      res.status(200).send("Data inserted successfully");
+    } 
+  });
 });
+
 
 
 

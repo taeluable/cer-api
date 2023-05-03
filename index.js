@@ -14,8 +14,8 @@ app.get('/',(req,res) => {
     res.send('hello')
 })
 
-app.get('/audit',(req,res) => {
-    connection.query("SELECT * FROM audit",(err,result) => {
+app.get('/<route_name>',(req,res) => {
+    connection.query("SELECT * FROM <table_name>",(err,result) => {
         if(err){
             console.log(err);
         }else{

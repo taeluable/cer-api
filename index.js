@@ -25,6 +25,21 @@ app.get('/:x', (req, res) => {
   });
 });
 
+app.post('/:x', (req, res) => {
+  const x = req.params.x;
+  // process the POST request and update the database table
+});
+
+app.delete('/:x', (req, res) => {
+  const x = req.params.x;
+  // process the DELETE request and delete the corresponding record from the database table
+});
+
+app.put('/:x', (req, res) => {
+  const x = req.params.x;
+  // process the UPDATE request and update the corresponding record in the database table
+});
+
 
  app.listen('3001', () => {
     console.log('Sever is runnong on port 3001')

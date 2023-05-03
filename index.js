@@ -10,27 +10,18 @@ app.use(cors());
 
 const connection = mysql.createConnection(process.env.DATABASE_URL);
 
-app.get('/', (req, res) => {
-  console.log('hello');
-  res.send('hello');
-});
-
-app.get('/:x', (req, res) => {
+app.post('/:x', jsonParser, (req, res) => {
   const x = req.params.x;
-  connection.query(`SELECT * FROM ${x}`, (err, result) => {
+  const data = req.body;
+  connection.query(`INSERT INTO ${x} SET ?`, data, (err, result) => {
     if (err) {
       console.log(err);
+      res.status(500).send('Error inserting data into database');
     } else {
-      res.send(result);
+      console.log(result);
+      res.status(200).send('Data inserted successfully');
     } 
   });
-});
-
-app.post('/:x', jsonParser, function (req, res, next) {
-  const x = req.params.x;
-  var Email = req.body.Email;
-  res.json({ Email });
-  // process the POST request and update the database table
 });
 
 app.listen(3001, () => {

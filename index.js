@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const mysql = require('mysql2')
 const cors = require('cors')
+var bodyParser = require('body-parser')
+varjsonParser = bodyParser.json()
 require('dotenv').config()
 
 
@@ -25,8 +27,10 @@ app.get('/:x', (req, res) => {
   });
 });
 
-app.post('/:x', (req, res) => {
+app.post('/:x'. jsonParser. function (req, res,next) => {
   const x = req.params.x;
+    var Email = req.body.Email
+    res.json({Email})
   // process the POST request and update the database table
 });
 

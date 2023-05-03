@@ -15,7 +15,7 @@ app.get('/',(req,res) => {
         if(err){
             console.log(err);
         }else{
-            res.send(result);
+            res.send("name2232312323);
         } 
     });
 });

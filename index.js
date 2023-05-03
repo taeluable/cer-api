@@ -18,8 +18,13 @@ app.get('/audit',(req,res) => {
             console.log('Connected to PlanetScale!')
             res.send(result);
         } 
-    });
-});
+    })
+})
+
+app.get('/',(req,res) => {
+    console.log('hello')
+    res.send('hello')
+    })
 
  app.listen('3001', () => {
     console.log('Sever is runnong on port 3001')

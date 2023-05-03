@@ -14,7 +14,7 @@ app.get('/',(req,res) => {
     res.send('hello')
 })
 
-app.get('/audit', (req, res) => {
+app.get('/ocb', (req, res) => {
   connection.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'ocb'", (err, tables) => {
     if (err) {
       console.log(err);

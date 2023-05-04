@@ -24,6 +24,7 @@ app.get('/:x', jsonParser, (req, res) => {
 
 app.get('/:x/:y', jsonParser, (req, res) => {
   const x = req.params.x;
+  const y = req.params.y;
   connection.query(`SELECT * FROM ${x} WHERE ${y}`, (err, result) => {
     if (err) {
       console.log(err);

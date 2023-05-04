@@ -22,10 +22,11 @@ app.get('/:x', jsonParser, (req, res) => {
 });
 
 
-app.get('/:x/:y', jsonParser, (req, res) => {
+app.get('/:x/:y/:z', jsonParser, (req, res) => {
   const x = req.params.x;
   const y = req.params.y;
-  connection.query(`SELECT * FROM ${x} WHERE ${y}`, (err, result) => {
+  const z = req.params.z;
+  connection.query('SELECT * FROM ?? WHERE ?? = ?', [x, y, z], (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -33,6 +34,7 @@ app.get('/:x/:y', jsonParser, (req, res) => {
     } 
   });
 });
+
 
 app.post('/:x', jsonParser, (req, res) => {
   const x = req.params.x;
